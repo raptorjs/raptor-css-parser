@@ -1,0 +1,29 @@
+{
+  "name": "raptor-css-parser",
+  "version": "0.1.0-SNAPSHOT",
+  "description": "Minimalistic CSS parsing functions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raptorjs/raptor-css-parser.git"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint lib"
+  },
+  "author": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+  "maintainers": "Patrick Steele-Idem <psteeleidem@ebay.com>",
+  "dependencies": {
+    "raptor-promises": "0.1.0-SNAPSHOT"
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1",
+    "jshint": "~2.3.0",
+    "raptor-logging": "0.1.0-SNAPSHOT"
+  },
+  "license": "Apache License v2.0",
+  "bin": {},
+  "main": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
