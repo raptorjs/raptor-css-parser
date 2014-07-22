@@ -25,11 +25,11 @@ function findUrls(path) {
     }
 }
 
-function replaceUrls(path, callback, thisObj) {
+function replaceUrls(path, replacerFunc, callback) {
     try {
         var code = fs.readFileSync(nodePath.join(__dirname, path), {encoding: 'utf8'});
         var cssParser = require('../');
-        return cssParser.replaceUrls(code, callback, thisObj);
+        return cssParser.replaceUrls(code, replacerFunc, callback);
     }
     catch(e) {
         logger.error(e);
@@ -49,11 +49,18 @@ describe('raptor-css-parser' , function() {
         done();
     });
 
-    it('should handle replacements for a simple CSS file', function() {
-        var code = replaceUrls('resources/simple.css', function(url) {
-            return url.toUpperCase();
-        });
-        expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
+    it('should handle replacements for a simple CSS file', function(done) {
+        replaceUrls(
+            'resources/simple.css',
+            function(url, matchStart, matchEnd, callback) {
+                callback(null, url.toUpperCase());
+            },
+            function(err, code) {
+                expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
+                done();
+            });
+
+        
     });
     
     it('should handle generic CSS file', function() {
