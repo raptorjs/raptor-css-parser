@@ -11,14 +11,14 @@
     "author": "Patrick Steele-Idem <pnidem@gmail.com>",
     "maintainers": "Patrick Steele-Idem <pnidem@gmail.com>",
     "dependencies": {
-        "raptor-async": "^1.0.0-beta",
-        "raptor-promises": "^1.0.0-beta"
+        "raptor-async": "^1.0.0",
+        "raptor-promises": "^1.0.0"
     },
     "devDependencies": {
         "mocha": "~1.15.1",
         "chai": "~1.8.1",
         "jshint": "~2.3.0",
-        "raptor-logging": "^1.0.0-beta"
+        "raptor-logging": "^1.0.0"
     },
     "license": "Apache License v2.0",
     "bin": {},
