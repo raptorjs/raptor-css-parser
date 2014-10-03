@@ -3,7 +3,7 @@
     "description": "Minimalistic CSS parsing functions",
     "repository": {
         "type": "git",
-        "url": "https://github.com/raptorjs3/raptor-css-parser.git"
+        "url": "https://github.com/raptorjs/raptor-css-parser.git"
     },
     "scripts": {
         "test": "node_modules/.bin/mocha --ui bdd --reporter spec ./test && node_modules/.bin/jshint lib"
