@@ -18,7 +18,7 @@ function findUrls(path) {
         });
         return urls;
     }
-    
+
     catch(e) {
         logger.error(e);
         throw e;
@@ -60,9 +60,9 @@ describe('raptor-css-parser' , function() {
                 done();
             });
 
-        
+
     });
-    
+
     it('should handle generic CSS file', function() {
         var urls = findUrls('resources/style.css');
         expect(Object.keys(urls).length).to.equal(3);
