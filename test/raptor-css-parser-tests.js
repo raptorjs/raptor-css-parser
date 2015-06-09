@@ -70,5 +70,10 @@ describe('raptor-css-parser' , function() {
         expect(urls['throbber.gif']).to.not.equal(null);
         expect(urls['d.gif']).to.not.equal(null);
     });
+
+    it('should handle data: URIs', function() {
+        var urls = Object.keys(findUrls('fixtures/data-uri.css'));
+        expect(urls.length).to.equal(0);
+    });
 });
 
