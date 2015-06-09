@@ -51,7 +51,7 @@ describe('raptor-css-parser' , function() {
 
     it('should handle replacements for a simple CSS file', function(done) {
         replaceUrls(
-            'resources/simple.css',
+            'fixtures/simple.css',
             function(url, matchStart, matchEnd, callback) {
                 callback(null, url.toUpperCase());
             },
@@ -64,7 +64,7 @@ describe('raptor-css-parser' , function() {
     });
 
     it('should handle generic CSS file', function() {
-        var urls = findUrls('resources/style.css');
+        var urls = findUrls('fixtures/style.css');
         expect(Object.keys(urls).length).to.equal(3);
         expect(urls['d.png']).to.not.equal(null);
         expect(urls['throbber.gif']).to.not.equal(null);
