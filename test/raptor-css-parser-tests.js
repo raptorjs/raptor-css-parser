@@ -59,8 +59,30 @@ describe('raptor-css-parser' , function() {
                 expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
                 done();
             });
+    });
 
+    it('should encode special chars', function(done) {
+        replaceUrls(
+            'fixtures/special-chars.css',
+            function(url, matchStart, matchEnd, callback) {
+                callback(null, 'data:image/svg+xml;utf8,(hello\nworld)');
+            },
+            function(err, code) {
+                expect(code).to.equal(".test { background-image: url(data:image/svg+xml;utf8,%28hello%0Aworld%29); }");
+                done();
+            });
+    });
 
+    it('should handle replacements for a simple CSS file', function(done) {
+        replaceUrls(
+            'fixtures/simple.css',
+            function(url, matchStart, matchEnd, callback) {
+                callback(null, url.toUpperCase());
+            },
+            function(err, code) {
+                expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
+                done();
+            });
     });
 
     it('should handle generic CSS file', function() {
