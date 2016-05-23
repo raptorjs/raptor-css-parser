@@ -56,7 +56,7 @@ describe('raptor-css-parser' , function() {
                 callback(null, url.toUpperCase());
             },
             function(err, code) {
-                expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
+                expect(code).to.equal(".test { background-image: url('IMAGE1.PNG'); }\n.test2 { background-image: url('IMAGE2.PNG'); }");
                 done();
             });
     });
@@ -68,7 +68,7 @@ describe('raptor-css-parser' , function() {
                 callback(null, 'data:image/svg+xml;utf8,(hello\nworld)');
             },
             function(err, code) {
-                expect(code).to.equal(".test { background-image: url(data:image/svg+xml;utf8,%28hello%0Aworld%29); }");
+                expect(code).to.equal(".test { background-image: url('data:image/svg+xml;utf8,(hello%0Aworld)'); }");
                 done();
             });
     });
@@ -80,7 +80,7 @@ describe('raptor-css-parser' , function() {
                 callback(null, url.toUpperCase());
             },
             function(err, code) {
-                expect(code).to.equal(".test { background-image: url(IMAGE1.PNG); }\n.test2 { background-image: url(IMAGE2.PNG); }");
+                expect(code).to.equal(".test { background-image: url('IMAGE1.PNG'); }\n.test2 { background-image: url('IMAGE2.PNG'); }");
                 done();
             });
     });
